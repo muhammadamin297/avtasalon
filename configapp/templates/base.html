@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto Salon</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; }
+        nav a { margin-right: 15px; text-decoration: none; }
+        img { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Bosh sahifa</a>
+        <a href="{% url 'create_salon' %}">+ Auto Salon</a>
+        <a href="{% url 'create_brend' %}">+ Brend</a>
+        <a href="{% url 'create_car' %}">+ Mashina</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

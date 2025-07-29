@@ -1,0 +1,8 @@
+<h1>{{ salon.title }}</h1>
+<img src="{{ salon.img.url }}" alt="">
+<p>{{ salon.context }}</p>
+<p>Email: {{ salon.email }}</p>
+<p>Telefon: {{ salon.phone }}</p>
+<p>Manzil: {{ salon.address }}</p>
+
+<a href="{% url 'salon_cars' salon.pk %}">Mashinalarni ko‘rish</a>

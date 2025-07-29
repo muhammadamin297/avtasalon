@@ -1,0 +1,10 @@
+<h2>{{ salon.title }} - Mashinalar</h2>
+{% for car in cars %}
+    <div>
+        <h3>{{ car.model }} ({{ car.year }})</h3>
+        <p>{{ car.color }} - ${{ car.price }}</p>
+        <img src="{{ car.img.url }}" width="200">
+    </div>
+{% empty %}
+    <p>Mashinalar topilmadi.</p>
+{% endfor %}
