@@ -1,8 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Auto Salonlar</h1>
-{% for salon in salons %}
-    <div>
-        <h2>{{ salon.title }}</h2>
-        <p>{{ salon.context|truncatechars:100 }}</p>
-        <a href="{% url 'salon_detail' salon.pk %}">Batafsil</a>
-    </div>
-{% endfor %}
+
+{% if salons %}
+    <ul>
+        {% for salon in salons %}
+            <li>
+                <h3>
+                    <a href="{% url 'salon_detail' salon.pk %}">{{ salon.title }}</a>
+                </h3>
+                <p>{{ salon.context|truncatewords:15 }}</p>
+                {% if salon.img %}
+                    <img src="{{ salon.img.url }}" alt="{{ salon.title }}">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Hali salonlar qo‘shilmagan.</p>
+{% endif %}
+{% endblock %}

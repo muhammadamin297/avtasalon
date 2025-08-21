@@ -6,15 +6,15 @@
     <style>
         body { font-family: sans-serif; margin: 30px; }
         nav a { margin-right: 15px; text-decoration: none; }
-        img { margin-top: 10px; }
+        img { margin-top: 10px; max-width: 300px; display:block; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="{% url 'home' %}">Bosh sahifa</a>
-        <a href="{% url 'create_salon' %}">+ Auto Salon</a>
-        <a href="{% url 'create_brend' %}">+ Brend</a>
-        <a href="{% url 'create_car' %}">+ Mashina</a>
+        <a href="{% url 'home' %}">🏠 Bosh sahifa</a>
+        <a href="{% url 'add-salon' %}">➕ Auto Salon</a>
+        <a href="{% url 'add-brend' %}">➕ Brend</a>
+        <a href="{% url 'add-car' %}">➕ Mashina</a>
     </nav>
     <hr>
     {% block content %}{% endblock %}
