@@ -11,12 +11,16 @@
 </head>
 <body>
     <nav>
+
         <a href="{% url 'home' %}">🏠 Bosh sahifa</a>
-        <a href="{% url 'add-salon' %}">➕ Auto Salon</a>
-        <a href="{% url 'add-brend' %}">➕ Brend</a>
-        <a href="{% url 'add-car' %}">➕ Mashina</a>
+        <a href="{% url 'add_salon' %}">➕ Auto Salon</a>
+        <a href="{% url 'add_brend' %}">➕ Brend</a>
+        <a href="{% url 'add_car' %}">➕ Mashina</a>
+
     </nav>
     <hr>
     {% block content %}{% endblock %}
 </body>
 </html>
+
+

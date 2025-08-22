@@ -1,35 +1,33 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ salon.title }} - Mashinalar</h1>
-
-{% if cars %}
-    <ul>
-        {% for car in cars %}
-            <li>
-                <strong>{{ car.model }}</strong> - {{ car.price }}$
-                ({{ car.year }} | {{ car.color }})
-                {% if car.img %}
-                    <br>
-                    <img src="{{ car.img.url }}" alt="{{ car.model }}">
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Bu salon uchun mashina qo‘shilmagan.</p>
-{% endif %}
-{% endblock %}
-
-
-
-
-{% for car in cars %}
-    <div>
-        <h3>{{ car.model_name }}</h3>
-        <p>Brend: {{ car.brend.title }}</p>
-        <p>Narx: {{ car.price }}</p>
-        <a href="{% url 'car_qr_pdf' car.id %}" target="_blank">📥 QR PDF yuklab olish</a>
-    </div>
+    <h1>{{ salon.title }} - Mashinalar</h1>
     <hr>
-{% endfor %}
+
+    {% if cars %}
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            {% for car in cars %}
+                <div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; width: 300px;">
+                    <h3>{{ car.model }}</h3>
+                    <p><b>Brend:</b> {{ car.brend.title }}</p>
+                    <p><b>Narx:</b> {{ car.price }} $</p>
+                    <p><b>Yil:</b> {{ car.year }}</p>
+                    <p><b>Rang:</b> {{ car.color }}</p>
+
+                    {% if car.img %}
+                        <img src="{{ car.img.url }}" alt="{{ car.model }}"
+                             style="max-width: 100%; height: auto; border-radius: 5px;">
+                    {% endif %}
+
+                    <br><br>
+                    <a href="{% url 'car_qr_pdf' car.id %}" class="btn btn-success" target="_blank">
+                        📥 QR-PDF yuklab olish
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Bu salon uchun mashina qo‘shilmagan.</p>
+    {% endif %}
+{% endblock %}
